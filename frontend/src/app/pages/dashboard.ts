@@ -32,10 +32,10 @@ import { ApiService, Guest, Stats } from '../api.service';
           <tbody>
             @for (g of guests(); track g.id) {
               <tr [attr.data-testid]="'row-' + g.id">
-                <td>{{ g.name }} <small>×{{ g.partySize }}</small></td>
+                <td>{{ g.name }} <small>Ã—{{ g.partySize }}</small></td>
                 <td>{{ g.email }}</td>
                 <td>{{ g.phone }}</td>
-                <td>{{ g.table ?? '—' }}</td>
+                <td>{{ g.table ?? 'â€”' }}</td>
                 <td>
                   @if (g.checkedInAt) { <span class="badge ok">Arrived</span> }
                   @else { <span class="badge wait">Waiting</span> }
@@ -43,7 +43,7 @@ import { ApiService, Guest, Stats } from '../api.service';
                 <td class="actions">
                   <button class="btn ghost small" (click)="qr.set(g)" title="View QR">QR</button>
                   <button class="btn ghost small" (click)="resend(g)" title="Resend invitation">Resend</button>
-                  <button class="btn ghost small danger-text" (click)="remove(g)" title="Delete">?</button>
+                  <button class="btn ghost small danger-text" (click)="remove(g)" title="Delete">âœ•</button>
                 </td>
               </tr>
             } @empty {
@@ -57,7 +57,7 @@ import { ApiService, Guest, Stats } from '../api.service';
         <h2>Live arrivals</h2>
         <ul data-testid="recent">
           @for (g of stats()?.recent ?? []; track g.id) {
-            <li><b>{{ g.name }}</b><br><small>{{ g.checkedInAt | date: 'shortTime' }} · Table {{ g.table ?? '—' }}</small></li>
+            <li><b>{{ g.name }}</b><br><small>{{ g.checkedInAt | date: 'shortTime' }} Â· Table {{ g.table ?? 'â€”' }}</small></li>
           } @empty { <li class="muted">Nobody has arrived yet.</li> }
         </ul>
       </aside>

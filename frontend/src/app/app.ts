@@ -6,7 +6,7 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
   imports: [RouterOutlet, RouterLink, RouterLinkActive],
   template: `
     <header>
-      <span class="brand">?? Wedding Queue</span>
+      <span class="brand">💍 Wedding Queue</span>
       <nav>
         <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" data-testid="nav-dashboard">Dashboard</a>
         <a routerLink="/guests/new" routerLinkActive="active" data-testid="nav-add">Add guest</a>

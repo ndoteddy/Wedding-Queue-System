@@ -29,10 +29,10 @@ export function endTime(start: string, minutes: number): string {
     <p class="muted" data-testid="progress">{{ doneCount() }} of {{ items().length }} done</p>
 
     @if (current(); as c) {
-      <div class="banner now" data-testid="now">? <b>Now:</b> {{ c.title }} <small>({{ c.startTime }}�{{ end(c) }})</small></div>
+      <div class="banner now" data-testid="now">▶️ <b>Now:</b> {{ c.title }} <small>({{ c.startTime }}–{{ end(c) }})</small></div>
     }
     @if (next(); as n) {
-      <div class="banner next" data-testid="next">? <b>Up next:</b> {{ n.startTime }} � {{ n.title }}</div>
+      <div class="banner next" data-testid="next">⏭️ <b>Up next:</b> {{ n.startTime }} · {{ n.title }}</div>
     }
 
     @if (editing()) {
@@ -79,9 +79,9 @@ export function endTime(start: string, minutes: number): string {
           <div class="body">
             <h3>{{ r.title }}</h3>
             <p class="meta">
-              @if (r.location) { <span>?? {{ r.location }}</span> }
-              @if (r.owner) { <span>?? {{ r.owner }}</span> }
-              <span>? {{ r.durationMinutes }} min</span>
+              @if (r.location) { <span>📍 {{ r.location }}</span> }
+              @if (r.owner) { <span>👤 {{ r.owner }}</span> }
+              <span>⏱️ {{ r.durationMinutes }} min</span>
             </p>
             @if (r.description) { <p class="notes">{{ r.description }}</p> }
           </div>
@@ -92,12 +92,12 @@ export function endTime(start: string, minutes: number): string {
               @if (r.status === 'inprogress') { <button class="btn small" (click)="setStatus(r, 'done')">Done</button> }
               @if (r.status !== 'pending') { <button class="btn ghost small" (click)="setStatus(r, 'pending')">Reset</button> }
               <button class="btn ghost small" (click)="startEdit(r)">Edit</button>
-              <button class="btn ghost small danger-text" (click)="remove(r)">?</button>
+              <button class="btn ghost small danger-text" (click)="remove(r)">✕</button>
             </div>
           </div>
         </li>
       } @empty {
-        @if (loaded()) { <li class="muted">No items yet � add the first moment of the day.</li> }
+        @if (loaded()) { <li class="muted">No items yet — add the first moment of the day.</li> }
       }
     </ol>
   `,

@@ -14,17 +14,17 @@ const RESULT_MS = 6000;
       <section class="welcome" [class.ok]="r.status === 'ok'" [class.already]="r.status === 'already'" [class.invalid]="r.status === 'invalid'" data-testid="result" [attr.data-status]="r.status">
         @switch (r.status) {
           @case ('ok') {
-            <div class="emoji">??</div>
+            <div class="emoji">🎉</div>
             <h1 data-testid="welcome">Welcome, {{ r.guest?.name }}!</h1>
-            <p>Party of {{ r.guest?.partySize }} � Table {{ r.guest?.table ?? 'TBA' }}</p>
+            <p>Party of {{ r.guest?.partySize }} · Table {{ r.guest?.table ?? 'TBA' }}</p>
           }
           @case ('already') {
-            <div class="emoji">??</div>
+            <div class="emoji">👋</div>
             <h1 data-testid="welcome">Welcome back, {{ r.guest?.name }}</h1>
             <p>This QR code was already scanned.</p>
           }
           @default {
-            <div class="emoji">??</div>
+            <div class="emoji">❌</div>
             <h1 data-testid="welcome">QR code not recognised</h1>
             <p>Please see the host at the entrance.</p>
           }
@@ -38,7 +38,7 @@ const RESULT_MS = 6000;
       <div id="reader" #reader></div>
       @if (cameraError()) { <p class="error" data-testid="camera-error">{{ cameraError() }}</p> }
       <form (ngSubmit)="manual()" class="manual">
-        <input name="code" [(ngModel)]="code" placeholder="�or type the code under the QR" data-testid="manual-code" autocomplete="off">
+        <input name="code" [(ngModel)]="code" placeholder="…or type the code under the QR" data-testid="manual-code" autocomplete="off">
         <button class="btn" type="submit" data-testid="manual-submit">Check in</button>
       </form>
     </section>
@@ -91,7 +91,7 @@ export class Scanner implements AfterViewInit, OnDestroy {
         () => {},
       );
     } catch {
-      this.cameraError.set('Camera unavailable � type the code below instead.');
+      this.cameraError.set('Camera unavailable — type the code below instead.');
     }
   }
 

@@ -39,13 +39,13 @@ import { ApiService, Guest, NotificationLog } from '../api.service';
         </div>
         @if (error()) { <div class="error" data-testid="form-error">{{ error() }}</div> }
         <button class="btn" type="submit" [disabled]="saving()" data-testid="submit">
-          {{ saving() ? 'Sending�' : 'Save & send QR code' }}
+          {{ saving() ? 'Sending…' : 'Save & send QR code' }}
         </button>
       </form>
 
       @if (created(); as g) {
         <section class="card success" data-testid="success">
-          <h2>? {{ g.name }} added</h2>
+          <h2>✅ {{ g.name }} added</h2>
           <img [src]="api.qrUrl(g.code)" width="200" height="200" alt="QR code">
           <ul>
             @for (n of logs(); track n.id) {
