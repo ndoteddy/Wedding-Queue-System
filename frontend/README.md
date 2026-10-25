@@ -2,6 +2,16 @@
 
 Angular 22 single-page app used by the wedding team to manage guests, check them in at the entrance by QR code, and run the wedding-day schedule. It talks to the .NET backend in [`../backend`](../backend) over a REST API.
 
+## Screenshots
+
+| Dashboard | Rundown | Scanner |
+|---|---|---|
+| ![Dashboard](../docs/screenshots/dashboard.png) | ![Rundown](../docs/screenshots/rundown.png) | ![Scanner](../docs/screenshots/scanner.png) |
+
+- **Dashboard** — live stats, guest list and arrivals.
+- **Rundown** — the wedding-day schedule with Now / Up next.
+- **Scanner** — the welcome screen shown after a successful QR check-in.
+
 ## Tech stack
 
 | Area | Choice |

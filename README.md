@@ -2,6 +2,16 @@
 
 Guests get a personal QR code by email + SMS the moment they are added. At the entrance, staff scan the QR and the screen greets the guest by name; the dashboard updates live.
 
+## Screenshots
+
+| Dashboard | Rundown | Scanner |
+|---|---|---|
+| ![Dashboard](docs/screenshots/dashboard.png) | ![Rundown](docs/screenshots/rundown.png) | ![Scanner](docs/screenshots/scanner.png) |
+
+- **Dashboard** — live stats, guest list and arrivals.
+- **Rundown** — the wedding-day schedule with Now / Up next.
+- **Scanner** — the welcome screen shown after a successful QR check-in.
+
 | Folder | What |
 |---|---|
 | `backend/` | .NET 10 minimal API, EF Core + SQLite (`wedding.db`, auto-created, seeded with 10 mock guests) |
@@ -18,7 +28,7 @@ cd frontend && npm start          # http://localhost:4200
 ## Rundown (run-of-show)
 A second feature stored in the same SQLite file (`RundownItems` table): the wedding-day schedule with start time, duration, location, owner and notes, seeded with an 11-item sample day. On `/rundown` the team can add / edit / delete items and mark each one **Start ? Done**; the page shows overall progress plus "Now" and "Up next". API: `GET/POST /api/rundown`, `PUT/DELETE /api/rundown/{id}`, `POST /api/rundown/{id}/status`.
 
-> The schema is created with `EnsureCreated` � if you ran an earlier version, delete `backend/wedding.db` once so the new table is created.
+> The schema is created with `EnsureCreated` — if you ran an earlier version, delete `backend/wedding.db` once so the new table is created.
 
 ## Email / SMS
 - **Email**: with no `Smtp:Host` configured (demo), the message with the inline QR is saved as `.eml` in `backend/outbox/` (open with any mail client). Set `Smtp` in `appsettings.json` (Host, Port, User, Password, From, UseSsl) to send for real.
