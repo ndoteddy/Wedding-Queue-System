@@ -51,15 +51,15 @@ public static partial class RundownService
         {
             ("14:00", 60, "Guest arrival & welcome drinks", "Garden entrance", "Ushers", "QR check-in at the gate, welcome drink served"),
             ("15:00", 40, "Wedding ceremony", "Main lawn", "Officiant", "Vows and ring exchange"),
-            ("15:45", 45, "Family & couple photos", "Rose garden", "Photographer Lena", "Group shots, then couple portraits"),
+            ("15:45", 45, "Family & couple photos", "Rose garden", "Fotografer Rina", "Group shots, then couple portraits"),
             ("16:30", 60, "Cocktail hour", "Terrace", "Bar team", "Canapés and live acoustic guitar"),
             ("17:30", 15, "Grand entrance", "Ballroom", "MC Daniel", "Couple is announced into the hall"),
             ("17:45", 75, "Dinner service", "Ballroom", "Catering lead Omar", "Three courses, vegetarian options at tables 2 and 5"),
             ("19:00", 30, "Speeches & toasts", "Ballroom", "MC Daniel", "Best man, maid of honour, parents"),
-            ("19:30", 15, "Cake cutting", "Ballroom", "Planner Sara", "Cake is wheeled out, photographer on stage"),
+            ("19:30", 15, "Cake cutting", "Ballroom", "Planner Sari", "Cake is wheeled out, photographer on stage"),
             ("19:45", 15, "First dance", "Dance floor", "DJ Marco", "Followed by parent dances"),
             ("20:00", 180, "Party & dancing", "Dance floor", "DJ Marco", "Open dance floor until the farewell"),
-            ("23:00", 20, "Farewell & sparkler exit", "Front driveway", "Planner Sara", "Guests line the driveway with sparklers"),
+            ("23:00", 20, "Farewell & sparkler exit", "Front driveway", "Planner Sari", "Guests line the driveway with sparklers"),
         };
         foreach (var r in rows)
             db.Rundown.Add(new RundownItem { StartTime = r.T, DurationMinutes = r.Min, Title = r.Title, Location = r.Loc, Owner = r.Owner, Description = r.Desc });

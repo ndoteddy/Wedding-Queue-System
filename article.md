@@ -167,7 +167,7 @@ public static void Seed(AppDb db)
 }
 ```
 
-Alice Johnson, Bob Smith, Carla Gomez and seven others now exist, ready to be scanned.
+Agus Prasetyo, Budi Santoso, Citra Dewi and seven others now exist, ready to be scanned.
 
 ---
 

@@ -17,14 +17,14 @@ test.describe('Dashboard', () => {
     await expect(page.getByTestId('stat-total')).toHaveText(/^\d+$/);
     const rows = page.locator('[data-testid=guest-table] tbody tr');
     expect(await rows.count()).toBeGreaterThanOrEqual(10);
-    const alice = rows.filter({ hasText: 'Alice Johnson' });
-    await expect(alice).toContainText('alice.johnson@example.com');
-    await expect(alice).toContainText('+1 555 0101');
+    const agus = rows.filter({ hasText: 'Agus Prasetyo' });
+    await expect(agus).toContainText('agus.prasetyo@example.com');
+    await expect(agus).toContainText('+62 812 3456 0101');
   });
 
   test('shows a QR code modal for a guest', async ({ page }) => {
     await page.goto('/');
-    await page.locator('tr', { hasText: 'Bob Smith' }).getByRole('button', { name: 'QR' }).click();
+    await page.locator('tr', { hasText: 'Budi Santoso' }).getByRole('button', { name: 'QR' }).click();
     await expect(page.getByTestId('qr-modal').locator('img')).toBeVisible();
     await expect(page.getByTestId('qr-code')).toHaveText(/^[0-9a-f]{16}$/);
   });

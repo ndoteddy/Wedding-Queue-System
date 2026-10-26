@@ -6,7 +6,7 @@ namespace WeddingQueue.Api.Tests;
 
 public class ApiTests
 {
-    static readonly GuestInput Good = new("Zed Zee", "zed@example.com", "+1 555 0199", "9", 3);
+    static readonly GuestInput Good = new("Zaki Zain", "zed@example.com", "+1 555 0199", "9", 3);
 
     [Fact]
     public async Task SeededDb_Lists10Guests()
@@ -24,7 +24,7 @@ public class ApiTests
         var res = await c.PostAsJsonAsync("/api/guests", Good);
         Assert.Equal(HttpStatusCode.Created, res.StatusCode);
         var g = (await res.Content.ReadFromJsonAsync<Guest>())!;
-        Assert.Equal("Zed Zee", g.Name);
+        Assert.Equal("Zaki Zain", g.Name);
         Assert.Single(f.Sender.Sent);
         var logs = await c.GetFromJsonAsync<List<NotificationLog>>($"/api/guests/{g.Id}/notifications");
         Assert.Equal(["email", "sms"], logs!.Select(l => l.Channel).Order().ToArray());
@@ -59,7 +59,7 @@ public class ApiTests
 
         var r1 = (await (await c.PostAsJsonAsync("/api/checkin", new CheckInRequest(g.Code))).Content.ReadFromJsonAsync<CheckInResult>())!;
         Assert.Equal("ok", r1.Status);
-        Assert.Equal("Zed Zee", r1.Guest!.Name);
+        Assert.Equal("Zaki Zain", r1.Guest!.Name);
 
         var r2 = (await (await c.PostAsJsonAsync("/api/checkin", new CheckInRequest(g.Code))).Content.ReadFromJsonAsync<CheckInResult>())!;
         Assert.Equal("already", r2.Status);

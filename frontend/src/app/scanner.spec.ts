@@ -32,16 +32,16 @@ describe('Scanner', () => {
   });
 
   it('shows a welcome message with the guest name on success', async () => {
-    checkIn.mockReturnValue(of({ status: 'ok', message: '', guest: { name: 'Alice Johnson', partySize: 2, table: '1' } }));
+    checkIn.mockReturnValue(of({ status: 'ok', message: '', guest: { name: 'Agus Prasetyo', partySize: 2, table: '1' } }));
     const f = await setup();
     f.componentInstance.submit('abc');
     f.detectChanges();
-    expect(q(f, 'welcome')?.textContent).toContain('Welcome, Alice Johnson!');
+    expect(q(f, 'welcome')?.textContent).toContain('Welcome, Agus Prasetyo!');
     expect(q(f, 'result')?.getAttribute('data-status')).toBe('ok');
   });
 
   it('flags a repeated scan', async () => {
-    checkIn.mockReturnValue(of({ status: 'already', message: '', guest: { name: 'Bob' } }));
+    checkIn.mockReturnValue(of({ status: 'already', message: '', guest: { name: 'Budi' } }));
     const f = await setup();
     f.componentInstance.submit('abc');
     f.detectChanges();

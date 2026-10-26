@@ -92,6 +92,7 @@ import { ApiService, Guest, Stats } from '../api.service';
     th { text-align: left; color: var(--muted); font-weight: 500; }
     th, td { padding: .5rem .4rem; border-bottom: 1px solid var(--line); }
     .actions { white-space: nowrap; text-align: right; }
+    td:nth-child(3) { white-space: nowrap; }
     .danger-text { color: var(--bad); }
     ul { list-style: none; padding: 0; margin: 0; }
     li { padding: .5rem 0; border-bottom: 1px solid var(--line); }
